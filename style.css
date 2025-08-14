@@ -25,6 +25,11 @@ header.glow-effect {
     animation: glowSweep 1.5s ease-in-out;
     border-bottom: 2px solid #ff4655;
 }
+    
+/* Auto-glow on page load */
+.tournament-card.auto-glow {
+    animation: cardGlow 1.2s ease-in-out;
+}
 
     background-color: #000;
     padding: 10px 20px;
