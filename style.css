@@ -6,14 +6,13 @@ body {
     background-position: center;
 }
 
-/* 🔹 Glow animations should be top-level — not inside other selectors */
+/* ====== Glow Animations ====== */
 @keyframes glowSweep {
     0% {
         box-shadow: inset 0 0 0 rgba(255, 70, 85, 0);
     }
     50% {
-        box-shadow: inset 0 0 25px rgba(255, 70, 85, 0.8),
-                    0 0 15px rgba(255, 70, 85, 0.8);
+        box-shadow: inset 0 0 25px rgba(255, 70, 85, 0.8), 0 0 15px rgba(255, 70, 85, 0.8);
     }
     100% {
         box-shadow: inset 0 0 0 rgba(255, 70, 85, 0);
@@ -25,24 +24,28 @@ body {
         box-shadow: 0 0 0 rgba(255, 70, 85, 0);
     }
     50% {
-        box-shadow: 0 0 20px rgba(255, 70, 85, 0.9),
-                    0 0 40px rgba(255, 70, 85, 0.7);
+        box-shadow: 0 0 20px rgba(255, 70, 85, 0.9), 0 0 40px rgba(255, 70, 85, 0.7);
     }
     100% {
         box-shadow: 0 0 0 rgba(255, 70, 85, 0);
     }
 }
 
+/* Auto-glow class */
+.tournament-card.auto-glow {
+    animation: cardGlow 1.2s ease-in-out;
+}
+
+/* ====== Header ====== */
 header {
     background-color: #000;
     padding: 10px 20px;
     text-align: center;
+    border-bottom: 2px solid #ff4655;
 }
 
-/* Header border glow */
 header.glow-effect {
     animation: glowSweep 1.5s ease-in-out;
-    border-bottom: 2px solid #ff4655;
 }
 
 header h1 {
@@ -59,6 +62,7 @@ nav a:hover {
     color: #ff4655;
 }
 
+/* ====== Content Sections ====== */
 .promo-video, .about {
     padding: 20px;
     background-color: rgba(0,0,0,0.7);
@@ -66,6 +70,7 @@ nav a:hover {
     border-radius: 8px;
 }
 
+/* ====== Tournament Cards ====== */
 .tournament-list {
     display: flex;
     justify-content: center;
@@ -83,25 +88,20 @@ nav a:hover {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Hover glow sweep effect */
 .tournament-card:hover {
     animation: cardGlow 1.2s ease-in-out;
     transform: scale(1.05);
     background-color: #ff2e44;
 }
 
-/* Auto-glow on page load */
-.tournament-card.auto-glow {
-    animation: cardGlow 1.2s ease-in-out;
-}
-
+/* ====== Footer ====== */
 footer {
     background-color: #000;
     text-align: center;
     padding: 10px;
 }
 
-/* Modal Styling */
+/* ====== Modal Styling ====== */
 .modal {
     display: none;
     position: fixed;
@@ -141,20 +141,18 @@ footer {
     background-color: #ff2e44;
 }
 
-/* Base state for transition */
+/* ====== Page Transition ====== */
 body {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* When fully loaded */
 body.page-loaded {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Fade-out before leaving */
 body.page-exit {
     opacity: 0;
     transform: translateY(-20px);
