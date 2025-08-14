@@ -6,34 +6,43 @@ body {
     background-position: center;
 }
 
-header {
-    /* Glowing border sweep animation */
+/* 🔹 Glow animations should be top-level — not inside other selectors */
 @keyframes glowSweep {
     0% {
         box-shadow: inset 0 0 0 rgba(255, 70, 85, 0);
     }
     50% {
-        box-shadow: inset 0 0 25px rgba(255, 70, 85, 0.8), 0 0 15px rgba(255, 70, 85, 0.8);
+        box-shadow: inset 0 0 25px rgba(255, 70, 85, 0.8),
+                    0 0 15px rgba(255, 70, 85, 0.8);
     }
     100% {
         box-shadow: inset 0 0 0 rgba(255, 70, 85, 0);
     }
 }
 
+@keyframes cardGlow {
+    0% {
+        box-shadow: 0 0 0 rgba(255, 70, 85, 0);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 70, 85, 0.9),
+                    0 0 40px rgba(255, 70, 85, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(255, 70, 85, 0);
+    }
+}
+
+header {
+    background-color: #000;
+    padding: 10px 20px;
+    text-align: center;
+}
+
 /* Header border glow */
 header.glow-effect {
     animation: glowSweep 1.5s ease-in-out;
     border-bottom: 2px solid #ff4655;
-}
-    
-/* Auto-glow on page load */
-.tournament-card.auto-glow {
-    animation: cardGlow 1.2s ease-in-out;
-}
-
-    background-color: #000;
-    padding: 10px 20px;
-    text-align: center;
 }
 
 header h1 {
@@ -64,25 +73,6 @@ nav a:hover {
 }
 
 .tournament-card {
-    /* Hover glow sweep effect */
-@keyframes cardGlow {
-    0% {
-        box-shadow: 0 0 0 rgba(255, 70, 85, 0);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(255, 70, 85, 0.9), 0 0 40px rgba(255, 70, 85, 0.7);
-    }
-    100% {
-        box-shadow: 0 0 0 rgba(255, 70, 85, 0);
-    }
-}
-
-.tournament-card:hover {
-    animation: cardGlow 1.2s ease-in-out;
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
-}
-
     background-color: rgba(255, 70, 85, 0.9);
     padding: 20px;
     border-radius: 8px;
@@ -90,10 +80,19 @@ nav a:hover {
     cursor: pointer;
     text-align: center;
     width: 250px;
+    transition: transform 0.3s ease-in-out;
 }
 
+/* Hover glow sweep effect */
 .tournament-card:hover {
+    animation: cardGlow 1.2s ease-in-out;
+    transform: scale(1.05);
     background-color: #ff2e44;
+}
+
+/* Auto-glow on page load */
+.tournament-card.auto-glow {
+    animation: cardGlow 1.2s ease-in-out;
 }
 
 footer {
