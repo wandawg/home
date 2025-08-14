@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanDawg - Competition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-image: url('background.jpg');">
+    <header>
+        <h1>Ongoing Tournament</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="competition.html">Competition</a>
+        </nav>
+    </header>
+
+    <section class="tournament-list">
+        <div class="tournament-card" onclick="openModal('Valorant Masters', 'Prize Pool: RM5000', 'Entry Fee: RM50 per team', 'Organiser: Riot Games Asia', 'Rules: 5v5 competitive, best of 3 matches', 'https://docs.google.com/forms/d/e/1FAIpQLSfeYGGXyNk6a5n9bamWe3Yn1ej37VBMvKBVXIQkv1EkRRXtTQ/viewform?usp=header')">
+            <h2>Valorant Masters</h2>
+            <p>Prize: RM5000</p>
+            <p>Entry Fee: RM50/team</p>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="tournamentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalPrize"></p>
+            <p id="modalFee"></p>
+            <p id="modalOrganiser"></p>
+            <p id="modalRules"></p>
+            <a id="registerLink" class="register-btn" target="_blank">Register Now</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 WanDawg. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
