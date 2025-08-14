@@ -27,6 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+// Auto-glow tournament cards on page load
+const tournamentCards = document.querySelectorAll(".tournament-card");
+tournamentCards.forEach((card, index) => {
+    setTimeout(() => {
+        card.classList.add("auto-glow");
+        setTimeout(() => {
+            card.classList.remove("auto-glow");
+        }, 1200); // remove after glow animation
+    }, index * 300); // stagger each card's glow
+});
+
 function openModal(title, prize, fee, organiser, rules, formLink) {
     document.getElementById("modalTitle").innerText = title;
     document.getElementById("modalPrize").innerText = prize;
