@@ -16,6 +16,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Trigger glowing header on page load
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector("header");
+    if (header) {
+        header.classList.add("glow-effect");
+        setTimeout(() => {
+            header.classList.remove("glow-effect");
+        }, 1500); // Remove after animation ends
+    }
+});
+
 function openModal(title, prize, fee, organiser, rules, formLink) {
     document.getElementById("modalTitle").innerText = title;
     document.getElementById("modalPrize").innerText = prize;
