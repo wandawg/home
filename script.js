@@ -1,3 +1,20 @@
+// Auto-glow on page load
+document.addEventListener("DOMContentLoaded", function() {
+    // Glow the header
+    const header = document.querySelector("header");
+    header.classList.add("glow-effect");
+    setTimeout(() => header.classList.remove("glow-effect"), 1500);
+
+    // Glow each tournament card in sequence
+    const cards = document.querySelectorAll(".tournament-card");
+    cards.forEach((card, index) => {
+        setTimeout(() => {
+            card.classList.add("auto-glow");
+            setTimeout(() => card.classList.remove("auto-glow"), 1200);
+        }, index * 400); // delay each card glow
+    });
+});
+
 // When the page loads, trigger the animation
 document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.add("page-loaded");
