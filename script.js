@@ -55,25 +55,39 @@ tournamentCards.forEach((card, index) => {
     }, index * 300); // stagger each card's glow
 });
 
-// Get modal & close button
-const modal = document.getElementById("tournamentModal");
-const closeBtn = modal.querySelector(".close");
+// Open the modal with dynamic content + fade-in effect
+function openModal(title, prize, fee, organiser, rules, registerLink) {
+    const modal = document.getElementById('tournamentModal');
+    
+    // Update modal content
+    modal.querySelector('h2').textContent = title;
+    const paragraphs = modal.querySelectorAll('p');
+    paragraphs[0].textContent = prize;
+    paragraphs[1].textContent = fee;
+    paragraphs[2].textContent = organiser;
+    paragraphs[3].textContent = rules;
 
-// Open modal
-document.querySelectorAll(".open-tournament").forEach(btn => {
-  btn.addEventListener("click", () => {
-    modal.style.display = "block";
-  });
-});
+    // Update register link
+    modal.querySelector('a').href = registerLink;
 
-// Close modal
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
+    // Show modal with fade-in
+    modal.classList.add('show');
+}
 
-// Close on outside click
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
+// Close modal when clicking X
+document.querySelector('.close').onclick = function() {
+    closeModal();
+};
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('tournamentModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+};
+
+function closeModal() {
+    const modal = document.getElementById('tournamentModal');
+    modal.classList.remove('show');
+}
