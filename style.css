@@ -1,9 +1,12 @@
+/* ====== Global Styles ====== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     color: white;
     background-size: cover;
     background-position: center;
+    opacity: 0; /* For page fade-in */
+    animation: pageFadeIn 0.8s ease-in forwards;
 }
 
 /* ====== Glow Animations ====== */
@@ -49,7 +52,7 @@ header.glow-effect {
 }
 
 header h1 {
-    color: #ff4655; /* Valorant red */
+    color: #ff4655;
 }
 
 nav a {
@@ -75,6 +78,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     margin: 20px;
+    flex-wrap: wrap;
 }
 
 .tournament-card {
@@ -103,97 +107,61 @@ footer {
 
 /* ===== MODAL BACKDROP ===== */
 .modal {
-  display: none; /* hidden until triggered */
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent black */
-  backdrop-filter: blur(4px); /* optional blur */
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-/* ===== MODAL CONTENT ===== */
-.modal-content {
-  position: relative;
-  margin: auto;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 600px;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
-  animation: slideIn 0.3s ease-in-out;
-}
-
-/* ===== CLOSE BUTTON ===== */
-.close {
-  color: #ff4c4c;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.close:hover {
-  color: #ff0000;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes slideIn {
-  from { transform: translateY(-60%); opacity: 0; }
-  to { transform: translateY(-50%); opacity: 1; }
-}
-
-/* Modal default hidden */
-.modal {
     display: none;
     position: fixed;
     z-index: 999;
-    padding-top: 100px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.7);
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Modal content */
+/* ===== MODAL CONTENT ===== */
 .modal-content {
-    background-color: #1a1a1a;
+    position: relative;
     margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #1a1a1a;
     padding: 20px;
-    border: 1px solid #ff4655;
-    width: 50%;
-    color: white;
     border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+    animation: slideIn 0.3s ease-in-out;
 }
 
-/* Show modal with fade-in */
-.modal.show {
-    display: block;
-    opacity: 1;
-}
-
+/* ===== CLOSE BUTTON ===== */
 .close {
-    color: #ff4655;
+    color: #ff4c4c;
     float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
 }
-
 .close:hover {
-    color: white;
+    color: #ff0000;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideIn {
+    from { transform: translateY(-60%); opacity: 0; }
+    to { transform: translateY(-50%); opacity: 1; }
+}
+@keyframes pageFadeIn {
+    to { opacity: 1; }
+}
+
+/* Modal show effect */
+.modal.show {
+    display: block;
+    opacity: 1;
 }
