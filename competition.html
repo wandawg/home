@@ -6,10 +6,32 @@
     <title>WanDawg - Competition</title>
     <link rel="stylesheet" href="style.css">
     
-        <!-- Website Icon -->
+    <!-- Website Icon -->
     <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            background-image: url('background.jpg');
+            background-size: cover;
+        }
+        main {
+            flex: 1; /* Push footer to the bottom */
+        }
+        footer {
+            background: rgba(0,0,0,0.8);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
 </head>
-<body style="background-image: url('background.jpg');">
+<body>
     <header>
         <h1>Ongoing Tournament</h1>
         <nav>
@@ -18,26 +40,28 @@
         </nav>
     </header>
 
-    <section class="tournament-list">
-        <div class="tournament-card" onclick="openModal('Valorant Masters', 'Prize Pool: RM5000', 'Entry Fee: RM50 per team', 'Organiser: Riot Games Asia', 'Rules: 5v5 competitive, best of 3 matches', 'https://docs.google.com/forms/d/e/1FAIpQLSfeYGGXyNk6a5n9bamWe3Yn1ej37VBMvKBVXIQkv1EkRRXtTQ/viewform?usp=header')">
-            <h2>Valorant Masters</h2>
-            <p>Prize: RM5000</p>
-            <p>Entry Fee: RM50/team</p>
-        </div>
-    </section>
+    <main>
+        <section class="tournament-list">
+            <div class="tournament-card" onclick="openModal('Valorant Masters', 'Prize Pool: RM5000', 'Entry Fee: RM50 per team', 'Organiser: Riot Games Asia', 'Rules: 5v5 competitive, best of 3 matches', 'https://docs.google.com/forms/d/e/1FAIpQLSfeYGGXyNk6a5n9bamWe3Yn1ej37VBMvKBVXIQkv1EkRRXtTQ/viewform?usp=header')">
+                <h2>Valorant Masters</h2>
+                <p>Prize: RM5000</p>
+                <p>Entry Fee: RM50/team</p>
+            </div>
+        </section>
 
-<!-- Tournament Modal -->
-<div id="tournamentModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Tournament Details</h2>
-    <p>Prize Pool: RM 1,000</p>
-    <p>Entry Fee: RM 50</p>
-    <p>Organiser: Valorant E-Sports Malaysia</p>
-    <p>Rules: No cheating, standard VCT format.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeYGGXyNk6a5n9bamWe3Yn1ej37VBMvKBVXIQkv1EkRRXtTQ/viewform?usp=header">Register Now</a>
-  </div>
-</div>
+        <!-- Tournament Modal -->
+        <div id="tournamentModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Tournament Details</h2>
+                <p>Prize Pool: RM 1,000</p>
+                <p>Entry Fee: RM 50</p>
+                <p>Organiser: Valorant E-Sports Malaysia</p>
+                <p>Rules: No cheating, standard VCT format.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeYGGXyNk6a5n9bamWe3Yn1ej37VBMvKBVXIQkv1EkRRXtTQ/viewform?usp=header">Register Now</a>
+            </div>
+        </div>
+    </main>
 
     <footer>
         <p>© 2025 WanDawg. All rights reserved.</p>
